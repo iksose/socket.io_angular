@@ -1,0 +1,9 @@
+<h3>List of Blog Titles</h3>
+
+
+<p>Clicking Each Title Takes You To That Document</p>
+<hr>
+
+ <div ng-repeat="item in postsList">
+    <a ui-sref="post({title: item.title})">{{ item.title }}</a>
+  </div>

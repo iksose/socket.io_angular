@@ -1,0 +1,16 @@
+<h1>View individuald deets</h1>
+
+        <div class="container">
+        	<span ng-show="loggedIn">
+
+	        <div text-angular ng-model="postDetail.body" ta-text-editor-class="form-content" ta-html-editor-class="form-content" ta-focussed-class="focussed"></div>
+	        <br/>
+
+	        <button ng-click='funUpdate(postDetail)'>Save</button>
+
+	        </span>
+	        <!-- <textarea ng-model="note.content"></textarea><br/> -->
+	        <span ng-hide="loggedIn">
+	         <div ta-bind ng-model="postDetail.body"></div><br/>
+	        </span>
+	    </div>

@@ -1,0 +1,19 @@
+<h4>Welcome to the Database</h4>
+
+<div class="row">
+	<div class="col-xs-3 col-sm-3">
+		<h5><strong>Mongoose</strong></h5>
+		<div ng-repeat="friends in movieList track by $index">
+		{{friends.title}}
+		</div>
+		<div class="input-group col-sm-5">
+		      <input type="text" class="form-control" ng-model="movieModel.title">
+		      <span class="input-group-btn">
+		        <button class="btn btn-default" type="button" ng-click='AddMovie()'>Add</button>
+		      </span>
+		</div><!-- /input-group -->
+	</div>
+
+
+
+</div>

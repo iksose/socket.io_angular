@@ -1,0 +1,24 @@
+#alerts{
+	width: 50%;
+}
+
+#loginDropdown a:hover{
+	cursor: pointer;
+};
+
+.ta-toolbar{
+	padding-bottom: 10px;
+}
+
+#taTextElement{
+	margin-top: 10px;
+	box-shadow: 1px 1px 1px 1px;
+}
+
+
+.cocks{
+	float: right !important;
+}
+
+
+body {background: #fff url(/images/bg_body.jpg) repeat-x;font: 13px/19px Arial, Tahoma, sans-serif;letter-spacing:.01em;color:#616161;} 
