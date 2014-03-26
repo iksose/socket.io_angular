@@ -11,7 +11,11 @@ angular.module('uiRouterSample').config(['$stateProvider', '$urlRouterProvider',
     template: '<p class="lead">Welcome to the UI-Router Demo</p>' + '<p>Use the menu above to navigate. ' + 'Pay attention to the <code>$state</code> and <code>$stateParams</code> values below.</p>' + '<p>Click these links—<a href="#/c?id=1">Alice</a> or ' + '<a href="#/user/42">Bob</a>—to see a url redirect in action.</p>',
     controller: ['$scope', '$state', '$http', 'utils', function($scope, $state, $http, utils, $resource) {
       console.log("Welcome home");
-    }]
+    }],
+    views: {'chat@': {
+        templateUrl: 'views/chatbox.html',
+        controller: 'socketController2'
+      }}
   }).state('contacts', {
     url: '/contacts',
     templateUrl: 'views/contacts.html',
@@ -478,13 +482,43 @@ angular.module('uiRouterSample').controller('socketController', function($scope,
 });
 angular.module('uiRouterSample').controller('socketController2', function($scope, socket) {
   $scope.time = "Nothing Here";
+  $scope.messages = [];
+  $scope.sendMsg = "";
+  $scope.truthy = true;
+  $scope.woops = function() {
+    $scope.truthy = false;
+    console.log("Connecting to chat...");
+    socket.connect();
+    socket.emit('setNickname', {nickname: "myDefaultNickName"});
+  };
+  var scrollBottom = function() {
+    var d = document.getElementById('readChat');
+    if (d.scrollHeight > d.clientHeight) {
+      d.scrollTop = d.scrollHeight - d.clientHeight;
+    }
+  };
   $scope.connectChat = function() {
     console.log("Connecting to chat...");
     socket.connect();
   };
+  $scope.chatDismiss = function() {
+    console.log("Dismissing...");
+    socket.emit('disconnect');
+    $scope.truthy = true;
+  };
   socket.on('send:time', function(data) {
-    $scope.time = data.time;
+    $scope.messages.push(data.time);
+    scrollBottom();
   });
+  $scope.sendMessage = function() {
+    scrollBottom();
+    if ($scope.sendMsg == "") {
+      console.log("Cannot be empty");
+    } else {
+      console.log("Sending message....", $scope.sendMsg);
+      $scope.sendMsg = "";
+    }
+  };
   socket.emit('disconnect');
 });
 'use strict';

@@ -5777,3 +5777,39 @@ button.close {
   bottom: 0;
   right: 5%;
 }
+#chatBox {
+  position: fixed;
+  height: 200px;
+  width: 170px;
+  right: 45px;
+  bottom: 35px;
+  background: #eeeeee;
+  padding: 10px;
+  z-index: 1;
+  border: 1px solid grey;
+}
+#inputChat {
+  position: absolute;
+  bottom: 0;
+  padding-right: 5px;
+}
+#readChat {
+  position: absolute;
+  top: 0;
+  overflow-y: scroll;
+  width: 150px;
+  margin-top: 30px;
+  height: 150px;
+}
+#chatBtn {
+  position: fixed;
+  z-index: 2;
+  bottom: 0;
+  right: 0;
+}
+#dismissChat :hover {
+  cursor: pointer;
+}
+#dismissChat a:hover {
+  cursor: pointer;
+}

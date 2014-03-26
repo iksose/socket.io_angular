@@ -56,7 +56,13 @@ angular.module('uiRouterSample')
 
                   console.log("Welcome home")
 
-              }]
+              }],
+              views: {
+                'chat@': {
+                  templateUrl: 'views/chatbox.html',
+                  controller: 'socketController2'
+                }
+              }
 
           })
 

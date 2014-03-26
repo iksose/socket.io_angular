@@ -119,12 +119,35 @@
            display the full url for learning purposes-->
     </pre>
     </div>
-      <span ng-controller="socketController2">
+<!--       <span ng-controller="socketController2">
          <button popover="{{time}}" popover-title="The title."
          class="btn btn-default" id="chatButton" ng-click=connectChat()>
            Chat <i class="fa fa-comment-o"></i>
          </button>
-       <span>
+       <span> -->
+
+<!--     <div id="chatBox" ui-view="chat">
+         <h2>Hello</h2>
+    </div> -->
+
+<div ng-controller='socketController2'>
+    <div id="chatBox" ng-hide="truthy">
+      <div id="dismissChat"><a ng-click="chatDismiss()"><i class="fa fa-heart-o"></i></a></div>
+      <div id="readChat">
+        {{messages}}
+      </div>
+
+      <div id="inputChat">
+        <form ng-submit="sendMessage()">
+          <input type="text" class="form-control" placeholder="Text input" ng-model="sendMsg">
+        </form>
+      </div>
+  </div>
+  <button class='btn btn-default' ng-click="woops()" id="chatBtn">Chat <i class="fa fa-comment"></i></button>
+</div>
+
+
+
   </body>
   <script src='/socket.io/socket.io.js'></script>
 </html>
