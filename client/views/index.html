@@ -119,6 +119,12 @@
            display the full url for learning purposes-->
     </pre>
     </div>
+      <span ng-controller="socketController2">
+         <button popover="{{time}}" popover-title="The title."
+         class="btn btn-default" id="chatButton" ng-click=connectChat()>
+           Chat <i class="fa fa-comment-o"></i>
+         </button>
+       <span>
   </body>
   <script src='/socket.io/socket.io.js'></script>
 </html>

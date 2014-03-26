@@ -476,6 +476,17 @@ angular.module('uiRouterSample').controller('socketController', function($scope,
     $scope.time = data.time;
   });
 });
+angular.module('uiRouterSample').controller('socketController2', function($scope, socket) {
+  $scope.time = "Nothing Here";
+  $scope.connectChat = function() {
+    console.log("Connecting to chat...");
+    socket.connect();
+  };
+  socket.on('send:time', function(data) {
+    $scope.time = data.time;
+  });
+  socket.emit('disconnect');
+});
 'use strict';
 angular.module('uiRouterSample').factory('socket', function(socketFactory) {
   return socketFactory();

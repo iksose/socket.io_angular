@@ -28,6 +28,7 @@ angular.module('btford.socket-io', []).
       return function socketFactory (options) {
         options = options || {};
         var socket = options.ioSocket || io.connect();
+        window.dicks = socket
         var prefix = options.prefix || defaultPrefix;
         var defaultScope = options.scope || $rootScope;
 
@@ -66,6 +67,14 @@ angular.module('btford.socket-io', []).
               });
               socket.on(eventName, forwardBroadcast);
             });
+          },
+          disconnect: function(){
+            //Jonathan Jennings
+            // return socket.disconnect();
+            console.log("Wow dude -- from btford_socket_ang.js")
+          },
+          connect: function(){
+            return socket.socket.connect();
           }
         };
 

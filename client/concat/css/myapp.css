@@ -5772,3 +5772,8 @@ button.close {
     display: none !important;
   }
 }
+#chatButton {
+  position: fixed;
+  bottom: 0;
+  right: 5%;
+}
